@@ -1,0 +1,30 @@
+# IDE & System
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Secrets
+.env
+
+# Docker Compose Data & Logs (Middleware Persistence)
+deploy/docker-compose/**/data/
+deploy/docker-compose/**/logs/
+deploy/docker-compose/**/log/
+deploy/docker-compose/**/conf/
+
+# Explicitly ignore specific middleware data if glob doesn't cover
+deploy/docker-compose/mysql/data/
+deploy/docker-compose/redis/data/
+deploy/docker-compose/elasticsearch/data/
+deploy/docker-compose/minio/data/
+deploy/docker-compose/nacos/data/
+deploy/docker-compose/nacos/logs/
+deploy/docker-compose/rabbitmq/data/
+deploy/docker-compose/rabbitmq/log/
