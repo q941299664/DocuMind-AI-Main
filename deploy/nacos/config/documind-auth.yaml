@@ -1,0 +1,28 @@
+# Nacos 配置文件: documind-auth.yaml
+# Data ID: documind-auth.yaml
+# Group: DEFAULT_GROUP
+
+server:
+  port: 9101
+
+spring:
+  application:
+    name: documind-auth
+  datasource:
+    # 认证服务需要连接 System 数据库查询用户
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://documind-mysql:3306/documind_system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  
+  data:
+    redis:
+      host: documind-redis
+      port: 6379
+      database: 1
+
+# JWT 配置
+jwt:
+  secret: documind-ai-secret-key-please-change-in-production-2026 # 必须大于32位
+  expiration: 86400 # 24小时
+  header: Authorization

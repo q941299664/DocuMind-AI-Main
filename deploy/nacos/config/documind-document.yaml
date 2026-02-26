@@ -1,0 +1,26 @@
+# Nacos 配置文件: documind-document.yaml
+# Data ID: documind-document.yaml
+# Group: DEFAULT_GROUP
+
+server:
+  port: 9301
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  application:
+    name: documind-document
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://documind-mysql:3306/documind_document?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+# MinIO 配置
+minio:
+  endpoint: http://documind-minio:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: documind-files

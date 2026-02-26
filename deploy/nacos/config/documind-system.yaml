@@ -1,0 +1,37 @@
+# Nacos 配置文件: documind-system.yaml
+# Data ID: documind-system.yaml
+# Group: DEFAULT_GROUP
+
+server:
+  port: 9201
+
+spring:
+  application:
+    name: documind-system
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://documind-mysql:3306/documind_system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  
+  # Redis 配置
+  data:
+    redis:
+      host: documind-redis
+      port: 6379
+      database: 0
+
+# MyBatis Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 日志配置
+logging:
+  level:
+    com.documind: debug

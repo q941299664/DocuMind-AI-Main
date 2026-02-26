@@ -1,0 +1,25 @@
+# Nacos 配置文件: documind-ai.yaml (Python 服务)
+# Data ID: documind-ai.yaml
+# Group: DEFAULT_GROUP
+
+server:
+  port: 8000 # Python FastAPI 默认端口
+
+spring:
+  application:
+    name: documind-ai-python
+
+# 向量数据库
+elasticsearch:
+  host: documind-es
+  port: 9200
+  index-name: documind_vectors
+
+# 模型配置
+model:
+  embedding:
+    type: huggingface
+    path: /models/bge-m3
+  llm:
+    api-key: your-api-key
+    base-url: https://api.deepseek.com
