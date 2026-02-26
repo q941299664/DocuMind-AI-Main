@@ -7,7 +7,6 @@ services:
     container_name: documind-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: documind_cloud
       TZ: Asia/Shanghai
     ports:
       - "3306:3306"

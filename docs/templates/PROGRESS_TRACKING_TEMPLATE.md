@@ -50,11 +50,7 @@
 | R-001 | OCR 识别率在复杂表格下较低 | M | H | 引入专门的表格识别模型 | Open |
 | R-002 | 开发环境内存不足 | H | M | 申请升级机器配置 | Closed |
 
-## 5. 同步机制记录
 
-- **每日站会 (Daily Stand-up)**: 每天 10:00 AM, 钉钉群视频, 限时 15 分钟。
-- **周会 (Weekly Sync)**: 每周五 16:00 PM, 演示 Demo, 复盘进度。
-
-> 文档维护人: [姓名]
+> 文档维护人: [DemoTao]
 > 更新频率: 每日更新任务状态, 每周更新燃尽图
 > 存档位置: `DocuMind-AI-Main/docs/management/progress/`

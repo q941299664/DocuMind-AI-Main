@@ -8,14 +8,14 @@
 | **负责人** | DemoTao |
 | **开始日期** | 2026-02-26 |
 | **预计结束** | 2026-03-05 |
-| **整体进度** | 30% |
+| **整体进度** | 45% |
 | **状态** | 🟢 正常 |
 
 ## 2. 燃尽图 (Burn-down Chart)
 
 | 周次 | 计划剩余工作量 (Story Points) | 实际剩余工作量 | 备注 |
 | :--- | :--- | :--- | :--- |
-| Week 1 | 20 | 14 | 项目初始化顺利，基础架构搭建完成 |
+| Week 1 | 20 | 11 | 项目初始化顺利，基础架构搭建完成，Python 结构已就绪 |
 
 ## 3. 任务分解与追踪 (Task Breakdown)
 
@@ -26,7 +26,8 @@
 | MAIN-001 | 项目目录结构初始化 | P0 | **Done** | Agent | 1h | 1h | |
 | MAIN-002 | Git Flow 规范文档编写 | P0 | **Done** | Agent | 2h | 2h | |
 | MAIN-003 | README 文档完善 | P0 | **Done** | Agent | 1h | 1h | |
-| MAIN-004 | 基础 Docker Compose 编排 | P1 | Todo | Agent | 4h | | MySQL/Redis/Nacos |
+| MAIN-004 | 基础 Docker Compose 编排 | P1 | **Done** | Agent | 4h | 2h | base.yml 已创建 |
+| MAIN-005 | 开发工作流指南编写 | P1 | **Done** | Agent | 2h | 1h | 新增 DEV_WORKFLOW_GUIDE.md |
 
 ### 3.2 后端服务 (Backend)
 
@@ -52,7 +53,7 @@
 
 | 任务 ID | 任务名称 | 优先级 | 状态 | 负责人 | 预计工时 | 实际工时 | 备注 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| PY-001 | Python 服务基础目录结构 | P0 | Todo | Agent | 1h | | |
+| PY-001 | Python 服务基础目录结构 | P0 | **Done** | Agent | 1h | 1h | |
 | PY-002 | FastAPI 框架集成 | P0 | Todo | Agent | 2h | | |
 | PY-003 | Nacos 注册发现接入 | P0 | Todo | Agent | 4h | | 遵循 Main 文档规范 |
 
@@ -65,5 +66,5 @@
 
 ## 5. 备注
 
-- 本周重点在于打通全栈基础设施，确保各端 Hello World 跑通。
-- 下周将进入核心业务功能开发 (用户登录、文件上传)。
+- **Week 1 成果**: 四端仓库初始化完毕，Git Flow 规范已确立，前后端 Hello World 跑通。
+- **Next Step**: 重点攻克 Backend Auth 和 Python Nacos 接入。

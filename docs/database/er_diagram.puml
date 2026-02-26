@@ -1,0 +1,107 @@
+@startuml
+hide circle
+skinparam linetype ortho
+
+' ==============================
+' System Service (documind_system)
+' ==============================
+package "System Service" {
+  entity "sys_user" as sys_user {
+    *id : BIGINT <<PK>>
+    --
+    *username : VARCHAR(64) <<UK>>
+    *password : VARCHAR(128)
+    nickname : VARCHAR(64)
+    email : VARCHAR(128)
+    avatar : VARCHAR(255)
+    status : TINYINT
+    create_time : DATETIME
+    update_time : DATETIME
+  }
+
+  entity "sys_role" as sys_role {
+    *id : BIGINT <<PK>>
+    --
+    *role_code : VARCHAR(64) <<UK>>
+    *role_name : VARCHAR(64)
+    description : VARCHAR(255)
+  }
+
+  entity "sys_permission" as sys_permission {
+    *id : BIGINT <<PK>>
+    --
+    parent_id : BIGINT
+    *name : VARCHAR(64)
+    permission_code : VARCHAR(128)
+    *type : TINYINT
+    path : VARCHAR(128)
+  }
+
+  entity "sys_user_role" as sys_user_role {
+    *id : BIGINT <<PK>>
+    --
+    *user_id : BIGINT <<FK>>
+    *role_id : BIGINT <<FK>>
+  }
+
+  entity "sys_role_permission" as sys_role_permission {
+    *id : BIGINT <<PK>>
+    --
+    *role_id : BIGINT <<FK>>
+    *permission_id : BIGINT <<FK>>
+  }
+
+  sys_user ||..o{ sys_user_role
+  sys_role ||..o{ sys_user_role
+  sys_role ||..o{ sys_role_permission
+  sys_permission ||..o{ sys_role_permission
+}
+
+' ==============================
+' Document Service (documind_document)
+' ==============================
+package "Document Service" {
+  entity "doc_info" as doc_info {
+    *id : BIGINT <<PK>>
+    --
+    *user_id : BIGINT <<FK>>
+    *file_name : VARCHAR(255)
+    file_size : BIGINT
+    file_type : VARCHAR(32)
+    *storage_path : VARCHAR(512)
+    *bucket_name : VARCHAR(64)
+    status : TINYINT
+    page_count : INT
+    create_time : DATETIME
+  }
+
+  sys_user ||..o{ doc_info : "Uploads"
+}
+
+' ==============================
+' AI Service (documind_ai)
+' ==============================
+package "AI Service" {
+  entity "ai_chat_session" as ai_chat_session {
+    *id : BIGINT <<PK>>
+    --
+    *user_id : BIGINT <<FK>>
+    title : VARCHAR(255)
+    create_time : DATETIME
+  }
+
+  entity "ai_chat_message" as ai_chat_message {
+    *id : BIGINT <<PK>>
+    --
+    *session_id : BIGINT <<FK>>
+    *role : VARCHAR(16)
+    *content : TEXT
+    ref_docs : JSON
+    create_time : DATETIME
+  }
+
+  sys_user ||..o{ ai_chat_session : "Creates"
+  ai_chat_session ||..o{ ai_chat_message : "Contains"
+}
+
+@enduml
